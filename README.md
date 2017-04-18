@@ -3,7 +3,7 @@
 ## 1. 技术栈：
 ### 前端：
 * vue全家桶(vue.js, vueRouter, vue-loader, vue-cli, proxyTable),
-*  ElementUI
+*  ElementUI(Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的组件库，提供了配套设计资源，帮助你的网站快速成型。)
 *  axios(基于 Promise 的 HTTP 请求客户端)
 *  vodal(动画的vue模态)
 *   toastr(是非阻塞通知的JavaScript库),
@@ -45,11 +45,26 @@
 我们不应该有前端后端之分，我们可以有专精之处，但是对于 web 开发这回事该懂的都应该要懂，否则你怎么可能打得赢？
 
 ### 架构演进
-* 数据-模板-样式混合
-* Model-View-Controller
-* 
+* 简单明快的早期时代
 
-### 设计思想
+![](https://github-camo.global.ssl.fastly.net/90850e93b917cd3c958dff1c7d0197f819167343/687474703a2f2f696d672e68622e616963646e2e636f6d2f63333639616163633864613338616638653432326664323935313438633537643162353831376666666335362d4f636250646c5f6677363538?_=3520583)
+
+* 后端为主的 MVC 时代
+ 
+![](https://github-camo.global.ssl.fastly.net/b9e16b0b3ff3361a481badaca7d408e8fa6b404f/687474703a2f2f696d672e68622e616963646e2e636f6d2f3961366266353237646162626462396237393563353862306237616636633761313864653963653331316136312d3975697578545f6677363538?_=3520583)
+
+* Ajax 带来的 SPA 时代
+
+![](https://github-camo.global.ssl.fastly.net/d0098546c9fa01b443c16ff1953c90aa9056955b/687474703a2f2f696d672e68622e616963646e2e636f6d2f3932393766646337336438336632373764343439633932313933613361663432386464633064343431316366392d6e31445936465f6677363538?_=3520583)
+![](https://github-camo.global.ssl.fastly.net/f064bc7a5b06ea9a39cf039a5dec0ca6675141ff/687474703a2f2f696d672e68622e616963646e2e636f6d2f3135383839323134336263363430333364323264643865643765373533366537316530373063346131336335372d6850673150635f6677363538?_=3520583)
+
+* 前端为主的 MV* 时代
+
+![](https://github-camo.global.ssl.fastly.net/2ab0e0e247dfae7b74760b7d57056a680204874d/687474703a2f2f696d672e68622e616963646e2e636f6d2f3536663463656530653663376166363165323464626633316534626531376631343264353930326331313039612d42637852696d5f6677363538?_=3520583)
+
+* Node 带来的全栈时代
+
+![](https://github-camo.global.ssl.fastly.net/ed895cf7561cb3ec07ef74aa2dea573b57dbe219/687474703a2f2f696d672e68622e616963646e2e636f6d2f3430303931653637316230626465653236653531366163303530633663616563383038383562386131326238372d374a676646685f6677363538?_=3520583)
 
 ## 3.如何进行前后端分离：
 后台只需提供API接口，前端调用AJAX实现数据呈现。
@@ -69,3 +84,4 @@
 * vuex文档：[http://vuex.vuejs.org/zh-cn/state.html](http://vuex.vuejs.org/zh-cn/state.html)
 * 前后分离架构的探索之路： [https://segmentfault.com/a/1190000003795517](https://segmentfault.com/a/1190000003795517)
 * 我们为什么要尝试前后端分离：[https://segmentfault.com/a/1190000006240370](https://segmentfault.com/a/1190000006240370)
+* 前端文摘：Web 开发模式演变历史和趋势：[http://www.cnblogs.com/lhb25/p/web-development-mode-evolve.html](http://www.cnblogs.com/lhb25/p/web-development-mode-evolve.html)
