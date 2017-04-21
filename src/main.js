@@ -23,13 +23,13 @@ new Vue({
     render: h => h(App)
 }).$mount('#app');
 
-const vuex_store = new Vuex.Store({
+/*const vuex_store = new Vuex.Store({
 	state: {
-		user_name: "";
+		user_name: ""
 	},
 	mutations: {
 		showUserName(state) {
-			alert(state.user_name);	
+			alert(state.user_name)
 		}
 	}
 })
@@ -37,5 +37,5 @@ const vuex_store = new Vuex.Store({
 let myvue = new Vue({
 	el: ".container",
 	store:　vuex_sto re, //注入到vue
-	router: 
-})
+	router:
+})*/
