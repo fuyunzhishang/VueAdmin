@@ -36,19 +36,22 @@ export default {
       }, {
         label: '暂存库位',
         value: '4'
-      }],
-      model: {
-        StockpositionCode: '',
-        StockpositionName: '',
-        AreaCode: '',
-        WarehouseCode: '',
-        Capacity: '',
-        Use: [],
-        StateName: '',
-        StockpositionType: ''
-      }
+      }]
+    }
+  },
+  vuex: {
+    getters: {
+      model: ({ StockPosition }) => StockPosition.criteriaModel
+    },
+    actions: {
+      
     }
   }
+}
+
+//相关的mutations
+const mutations = {
+
 }
 </script>
 

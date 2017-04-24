@@ -7,40 +7,30 @@
 
 </template>
 
-<script>
-export default {
-  data() {
-    return {
+  <script>
+  import SearchList from '../vuex/actions'
+  export default {
+    data() {
+      return {
 
-    }
-  },
-  methods: {
-    SerarchList(page) {
-      this.loading2 = true
-      this.$http.post('/api/stockposition/list/?currentPage=' + page, {
-        LikeStockpositioncode: this.model.StockpositionCode,
-        Stockpositionname: this.model.StockpositionName,
-        Areacode: this.model.AreaCode,
-        Stockpositiontype: this.model.StockpositionType
-
-      })
-      .then(res => {
-        this.loading2 = false
-        var ojson = JSON.parse(res.data)
-        console.dir(ojson)
-        this.tableData = ojson.list
-        this.totalData = ojson.listLength
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      }
     },
-    openAddModel() {
-      this.addStockposition = true
+    methods: {
+
+      openAddModel() {
+        this.addStockposition = true
+      }
+    },
+    vuex: {
+      getters:{
+
+    },
+    actions: {
+      SerarchList
     }
   }
-}
-</script>
+  }
+  </script>
 
 <style lang="css">
 </style>
