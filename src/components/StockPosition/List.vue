@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: 'List',
   data() {
     return {
       loading2 : false,

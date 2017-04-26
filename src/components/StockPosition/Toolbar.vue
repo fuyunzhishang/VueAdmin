@@ -8,8 +8,9 @@
 </template>
 
   <script>
-  import SearchList from '../vuex/actions'
+  import SearchList from '../../vuex/actions'
   export default {
+    name: 'Toolbar',
     data() {
       return {
 

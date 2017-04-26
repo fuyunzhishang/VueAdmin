@@ -26,6 +26,7 @@
 
 <script>
 export default {
+    name: 'Edit',
     data() {
         return {
             addStockposition: false,
