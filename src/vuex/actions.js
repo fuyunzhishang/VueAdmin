@@ -1,6 +1,5 @@
 //stockposition actions
 import * as types from './mutation-types'
-import axios from 'axios'
 
 //查询方法
 // export const SearchList = (CriteriaModel) => {
@@ -25,6 +24,6 @@ import axios from 'axios'
 //     dispatch(types.SET_MODEL_VAL, CriteriaModel)
 //   }
 
-export const SearchList = (CriteriaModel) => {
-  dispatch(type.SET_MODEL_VAL,CriteriaModel)
-}
+// export const SearchList = (CriteriaModel) => {
+//   this.$store.dispatch(type.SET_MODEL_VAL,CriteriaModel)
+// }
