@@ -64,8 +64,14 @@ export default {
     computed: mapGetters ({
       editModel: 'EditModel',
       Edit: 'Edit',
-      StockpositionTypeList: 'StockpositionTypeList'
+      StockpositionTypeList: 'StockpositionTypeList',
     }),
+    watch: {
+      'this.$store.state.StockPosition.Edit.saveResult': function () {
+        debugger
+        console.log(this.Edit.saveResult)
+      }
+    },
     methods: {
        closeModal() {
            this.Edit.addStockposition = false;
@@ -76,7 +82,9 @@ export default {
         this.$store.dispatch('ResetEditModel')
       },
       addModelAction() {
-        this.$store.dispatch('AddModel', this.editModel)
+        this.$store.dispatch('AddModel', this.editModel).then(() => {
+         
+        })
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();

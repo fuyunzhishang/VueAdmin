@@ -6,7 +6,7 @@ class Model {
     this.StockpositionCode = StockpositionType
     this.StockpositionName = StockpositionName
     this.AreaCode = AreaCode
-    this.Stockpositiontype = StockpositionType
+    this.StockpositionType = StockpositionType
     this.Warehousecode = Warehousecode
   }
 }
@@ -38,7 +38,8 @@ const state = {
     tableData: [],
   },
   Edit: {
-    addStockposition: false
+    addStockposition: false,
+    saveResult: ''
   }  
 }
 
@@ -58,6 +59,9 @@ const mutations = {
   },
   [types.RESET_EDIT_MODEL] (state) {
     state.EditModel = new Model()
+  },
+  [types.SET_SAVE_INFO] (state, result) {
+    state.Edit.saveResult = result
   }
   
 }
@@ -84,7 +88,7 @@ const getters = {
 const actions = {
   //查询
   SearchList ({ commit, state }, CriteriaModel) {
-    //this.loading2 = true
+    state.List.loading2 = true
     axios.post('/api/stockposition/list/?currentPage=' + state.List.currentpage , {
       LikeStockpositioncode: CriteriaModel.StockpositionCode,
       Stockpositionname: CriteriaModel.StockpositionName,
@@ -92,13 +96,12 @@ const actions = {
       Stockpositiontype: CriteriaModel.StockpositionType
     })
     .then(res => {
-      //this.loading2 = false
+      state.List.loading2 = false
       var ojson = JSON.parse(res.data)
       console.dir(ojson)
       commit(types.SET_TABLE_DATA, ojson.list)
       commit(types.SET_TOTAL_DATA, ojson.listLength)
-      //this.tableData = ojson.list
-      //this.totalData = ojson.listLength
+      //toastr.success('查询成功！')
     })
     .catch(err => {
       console.log(err)
@@ -117,14 +120,13 @@ const actions = {
               WarehouseCode: model.Warehousecode
             })
             .then(res => {
-              if (res.data.Success) {
-              //this.toastr.success(res.data.Message)
+              commit(types.SET_SAVE_INFO, res.data.Message)
+              if (res.data.Success) { 
                console.log(res.data)
                commit(types.SET_EDIT_VODAL, false)
                commit(types.RESET_EDIT_MODEL)
                //closeModal()
              }
-
             })
             .catch(e => {
               this.toastr.warn('保存失败！')

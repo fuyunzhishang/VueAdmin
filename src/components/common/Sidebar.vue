@@ -43,11 +43,11 @@
     .sidebar{
         display: block;
         position: absolute;
-        width: 250px;
+        width: 180px;
         left: 0;
-        top: 70px;
+        top: 50px;
         bottom:0;
-        background: #2E363F;
+        background: #20A0FF;
     }
     .sidebar > ul {
         height:100%;

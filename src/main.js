@@ -8,14 +8,14 @@ import toastr from 'toastr';
 import 'toastr/build/toastr.min.css';
 import 'vodal/fade.css';
 import 'element-ui/lib/theme-default/index.css';    // 默认主题
-// import '../static/css/theme-green/index.css';       // 浅绿色主题
+//import '../static/css/theme-green/index.css';       // 浅绿色主题
 import "babel-polyfill";
 import Vuex from 'vuex';
 import store from './vuex/store'
 
 Vue.use(ElementUI);
 Vue.component(Vodal.name, Vodal)
-Vue.prototype.toastr = toastr
+Vue.prototype.$toastr = toastr
 
 Vue.prototype.$http = axios
 

@@ -42,9 +42,9 @@
         position: relative;
         box-sizing: border-box;
         width: 100%;
-        height: 70px;
+        height: 50px;
         font-size: 22px;
-        line-height: 70px;
+        line-height: 50px;
         color: #fff;
     }
     .header .logo{
@@ -69,7 +69,7 @@
     .user-info .user-logo{
         position: absolute;
         left:0;
-        top:15px;
+        top:5px;
         width:40px;
         height:40px;
         border-radius: 50%;

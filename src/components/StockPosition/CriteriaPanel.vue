@@ -26,12 +26,12 @@ export default {
   name: 'CriteriaPanel',
   data() {
     return {
-      
+     
     }
   },
   computed: mapGetters({
     CriteriaModel: 'CriteriaModel',
-    StockpositionTypeList: 'StockpositionTypeList'
+    StockpositionTypeList: 'StockpositionTypeList',
   }),
   // computed: {
   //   ...mapGetters([
