@@ -9,6 +9,13 @@ import 'toastr/build/toastr.min.css';
 import 'vodal/fade.css';
 import 'element-ui/lib/theme-default/index.css';    // 默认主题
 //import '../static/css/theme-green/index.css';       // 浅绿色主题
+//import 'jquery/dist/jquery.js'
+//import $ from 'jquery'
+import jQuery from 'jquery';
+import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/js/collapse.js'
+import 'bootstrap/fonts/glyphicons-halflings-regular.woff'
 import "babel-polyfill";
 import Vuex from 'vuex';
 import store from './vuex/store'

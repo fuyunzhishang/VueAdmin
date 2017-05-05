@@ -1,15 +1,7 @@
 import * as types from '../mutation-types'
 import axios from 'axios'
+import Model from '../models/StockPosition'
 
-class Model {
-  constructor(StockpositionCode = '', StockpositionName = '', AreaCode = '', StockpositionType = '', Warehousecode ='') {
-    this.StockpositionCode = StockpositionType
-    this.StockpositionName = StockpositionName
-    this.AreaCode = AreaCode
-    this.StockpositionType = StockpositionType
-    this.Warehousecode = Warehousecode
-  }
-}
 var CriteriaModel = new Model()
 var EditModel = new Model()
 //改模块的初始状态
@@ -39,7 +31,10 @@ const state = {
   },
   Edit: {
     addStockposition: false,
-    saveResult: ''
+    saveResult:{
+      state: '',
+      message: ''
+    }
   }  
 }
 
@@ -60,9 +55,17 @@ const mutations = {
   [types.RESET_EDIT_MODEL] (state) {
     state.EditModel = new Model()
   },
+  [types.SET_EDIT_MODEL] (state, model) {
+    //把值传入EditModel
+    for(let key in model) {
+      state.EditModel[key] = model[key]
+    }
+  },
   [types.SET_SAVE_INFO] (state, result) {
-    state.Edit.saveResult = result
-  }
+    state.Edit.saveResult.state = result.Success
+    state.Edit.saveResult.message = result.Message
+  },
+
   
 }
 
@@ -110,6 +113,11 @@ const actions = {
   ResetEditModel ({ commit, state }) {
     commit(types.RESET_EDIT_MODEL)
   },
+  SetEditModel ({commit, state}, model) {
+    //console.log(model)
+    commit(types.SET_EDIT_MODEL, model)
+    commit(types.SET_EDIT_VODAL, true)
+  },
   AddModel({ commit, state}, model) {
         try{
           if (true) {
@@ -119,17 +127,16 @@ const actions = {
               Areacode: model.AreaCode,
               WarehouseCode: model.Warehousecode
             })
-            .then(res => {
-              commit(types.SET_SAVE_INFO, res.data.Message)
+            .then(res => {    
               if (res.data.Success) { 
                console.log(res.data)
-               commit(types.SET_EDIT_VODAL, false)
-               commit(types.RESET_EDIT_MODEL)
-               //closeModal()
+               commit(types.SET_EDIT_VODAL, false) //关闭Edit
+               commit(types.RESET_EDIT_MODEL) //重置EditModel
+               commit(types.SET_SAVE_INFO, res.data) //推送通知
              }
             })
             .catch(e => {
-              this.toastr.warn('保存失败！')
+              //this.toastr.warn('保存失败！')
               console.log(e)
             })
           }else {

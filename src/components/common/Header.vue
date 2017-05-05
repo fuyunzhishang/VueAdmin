@@ -1,6 +1,9 @@
 <template>
     <div class="header">
-        <div class="logo">后台管理系统</div>
+        <el-col :span="10" class="logo" :class="">WMS管理系统</el-col>
+        <el-col :span="10">
+            <div class="tools" ><i id="sider-toggle" class="glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#siderbar"></i></div>
+        </el-col>
       <div class="user-info">
         <el-dropdown trigger="click" @command="handleCommand">
             <span class="el-dropdown-link">
@@ -18,7 +21,9 @@
     export default {
         data() {
             return {
-                name: 'linxin'
+                name: 'linxin',
+                sysName: '',
+                collapsed: false
             }
         },
         computed:{
@@ -33,9 +38,17 @@
                     localStorage.removeItem('ms_username')
                     this.$router.push('/login');
                 }
+            },
+            collapse() {
+                this.collapsed = !this.collapsed
             }
         }
     }
+    $(document).ready(() => {
+        $('#sider-toggle').click(() => {
+        
+        })
+    })
 </script>
 <style scoped>
     .header {
@@ -49,7 +62,7 @@
     }
     .header .logo{
         float: left;
-        width:250px;
+        width:200px;
         text-align: center;
     }
     .user-info {

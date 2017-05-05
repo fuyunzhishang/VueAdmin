@@ -2,8 +2,8 @@
   <!--添加表单-->
   <vodal :show="Edit.addStockposition" animation="door" :width="500" :height="400" :closeButton="false">
     <el-form :model="editModel" label-width="100px"  ref="ruleForm">
-      <el-form-item label="库位编码" prop="StockpositionCode">
-        <el-input v-model="editModel.StockpositionCode"></el-input>
+      <el-form-item label="库位编码">
+        <el-input v-model="editModel.Stockpositioncode"></el-input>
       </el-form-item>
       <el-form-item label="库位类型">
         <el-select v-model="editModel.StockpositionType" placeholder="请选择库位类型">
@@ -11,7 +11,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="区域编码">
-        <el-input v-model="editModel.AreaCode"></el-input>
+        <el-input v-model="editModel.Areacode"></el-input>
       </el-form-item>
       <el-form-item label="仓库编码">
         <el-input v-model="editModel.Warehousecode"></el-input>
@@ -26,7 +26,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-export default {
+export default { 
     name: 'Edit',
     data() {
         return {
@@ -46,7 +46,7 @@ export default {
             //     },
             //     rules: {
             //         StockpositionCode: [{
-            //                 required: true,
+            //                 required: true, 
             //                 message: '请输入库位编码',
             //                 trigger: 'blur'
             //             },
@@ -83,7 +83,20 @@ export default {
       },
       addModelAction() {
         this.$store.dispatch('AddModel', this.editModel).then(() => {
-         
+          setTimeout(() => {
+            if(this.Edit.saveResult) {
+              this.$message({
+                message: this.Edit.saveResult.message,
+                type: 'success'
+              })
+            } else {
+              this.$message({
+                message: this.Edit.saveResult.message,
+                type: 'error'
+              })
+            }
+          }, 1000)
+          //setTimeout(() => this.$toastr.info(this.Edit.saveResult), 1000)
         })
       },
       resetForm(formName) {

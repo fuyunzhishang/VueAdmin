@@ -1,7 +1,9 @@
 <template lang="html">
   <!--查询面板开始-->
-  <div class="criteria">
-    <el-form :inline="true"  :model="CriteriaModel" class="search-panel">
+  <div class="criteria panel panel-info">
+    <div class="panel-heading">查询面板</div>
+    <div class="panel-body">
+      <el-form :inline="true"  :model="CriteriaModel" class="search-panel">
       <el-form-item label="库位编码">
         <el-input v-model="CriteriaModel.StockpositionCode"></el-input>
       </el-form-item>
@@ -17,6 +19,7 @@
         <el-input v-model="CriteriaModel.Warehousecode"></el-input>
       </el-form-item>
     </el-form>
+    </div>
   </div>
 </template>
 
@@ -59,4 +62,5 @@ const mutations = {
 </script>
 
 <style lang="css">
+
 </style>

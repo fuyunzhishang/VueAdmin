@@ -1,6 +1,6 @@
 <template>
-    <div class="sidebar">
-        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
+    <div id="siderbar" class="collapse in">
+        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="light" unique-opened router>
             <el-menu-item index="readme">
                 <i class="el-icon-setting"></i>自述
             </el-menu-item>
@@ -37,6 +37,17 @@
             }
         }
     }
+    //开关导航菜单
+    $(document).ready(() => {
+        //$('.collapse').collapse()
+        //$("#siderbar").animate('collapse in width')
+        $('#siderbar').on('hidden.bs.collapse', function () {
+            $(".content").animate({left:'0px'})
+        })
+        $('#siderbar').on('shown.bs.collapse', function () {
+            $(".content").animate({left:'150px'})
+        })
+    })
 </script>
 
 <style scoped>
@@ -52,4 +63,35 @@
     .sidebar > ul {
         height:100%;
     }
+   .collapse {
+  display: none;
+  visibility: hidden;
+}
+.collapse.in {
+  display: block;
+  visibility: visible;
+}
+tr.collapse.in {
+  display: table-row;
+}
+tbody.collapse.in {
+  display: table-row-group;
+}
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.collapsing.width {
+  -webkit-transition-property: width, visibility;
+  transition-property: width, visibility;
+  width: 0;
+  height: auto;
+}
 </style>
