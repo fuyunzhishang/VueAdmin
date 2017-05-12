@@ -83,6 +83,7 @@ export default {
       },
       addModelAction() {
         this.$store.dispatch('AddModel', this.editModel).then(() => {
+          console.log(this.editModel)
           setTimeout(() => {
             if(this.Edit.saveResult) {
               this.$message({

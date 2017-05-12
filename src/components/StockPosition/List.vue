@@ -10,6 +10,7 @@
       <el-table-column  prop="Identification" label="ID" style"hidden:hidden"></el-table-column>
       <el-table-column  prop="Stockpositioncode" label="库位编码"></el-table-column>
       <el-table-column prop="Stockpositionname" label="库位名称"></el-table-column>
+      <el-table-column prop="StockpositionType" label="库位类型"></el-table-column>
       <el-table-column prop="Capacity" label="最大容量"></el-table-column>
       <el-table-column prop="Areacode" label="区域编码"></el-table-column>
       <el-table-column prop="Warehousecode" label="仓库编码"></el-table-column>

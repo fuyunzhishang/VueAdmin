@@ -119,13 +119,17 @@ const actions = {
     commit(types.SET_EDIT_VODAL, true)
   },
   AddModel({ commit, state}, model) {
+    console.log({'add':model})
         try{
           if (true) {
             axios.post('/api/stockposition/add/', {
-              Stockpositioncode: model.StockpositionCode,
-              Stockpositiontype: model.StockpositionType,
-              Areacode: model.AreaCode,
-              WarehouseCode: model.Warehousecode
+              // Identification: model.Identification,
+              // Stockpositioncode: model.Stockpositioncode,
+              // Stockpositionname: model.Stockpositionname,
+              // Stockpositiontype: model.StockpositionType,
+              // Areacode: model.Areacode,
+              // WarehouseCode: model.Warehousecode,
+              model
             })
             .then(res => {    
               if (res.data.Success) { 

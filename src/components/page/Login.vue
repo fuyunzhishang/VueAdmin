@@ -41,7 +41,14 @@
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',self.ruleForm.username);
+                        //localStorage.setItem('ms_username',self.ruleForm.username);
+                        this.$http.post('/rights',this.ruleForm)
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
                         self.$router.push('/readme');
                     } else {
                         console.log('error submit!!');

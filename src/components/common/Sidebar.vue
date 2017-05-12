@@ -53,6 +53,7 @@
 <style scoped>
     .sidebar{
         display: block;
+        
         position: absolute;
         width: 180px;
         left: 0;
