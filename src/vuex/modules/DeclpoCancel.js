@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import axios from 'axios'
-import Model from '../models/StockPosition'
+import Model from '../models/DeclpoCancel'
 
 var CriteriaModel = new Model()
 var EditModel = new Model()
@@ -8,19 +8,19 @@ var EditModel = new Model()
 const state = {
   CriteriaModel,
   EditModel,
-  StockpositionTypeList: [{},{
-        label: '正常存库位',
-        value: '1'
-      }, {
-        label: '残次库位',
-        value: '2'
-      }, {
-        label: '虚拟库位',
-        value: '3'
-      }, {
-        label: '暂存库位',
-        value: '4'
-  }],
+  // StockpositionTypeList: [{},{
+  //       label: '正常存库位',
+  //       value: '1'
+  //     }, {
+  //       label: '残次库位',
+  //       value: '2'
+  //     }, {
+  //       label: '虚拟库位',
+  //       value: '3'
+  //     }, {
+  //       label: '暂存库位',
+  //       value: '4'
+  // }],
   List: {
     loading2 : false,
     totalData: 0,
@@ -70,20 +70,17 @@ const mutations = {
 }
 
 const getters = {
-  StockPositionCriteriaModel: state => {
+  DeclpoCancelCriteriaModel: state => {
     return state.CriteriaModel
   },
-  StockPositionEditModel: state => {
+  DeclpoCancelEditModel: state => {
     return state.EditModel
   },
-  StockPositionList: state => {
+  DeclpoCancelList: state => {
     return state.List
   },
-  StockPositionEdit: state => {
+  DeclpoCancelEdit: state => {
     return state.Edit
-  },
-  StockpositionTypeList: state => {
-    return state.StockpositionTypeList
   }
 }
 

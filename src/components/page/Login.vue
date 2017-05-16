@@ -4,10 +4,10 @@
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
-                    <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+                    <el-input v-model="ruleForm.userNo" placeholder="username"></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
+                    <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.ent mer.native="submitForm('ruleForm')"></el-input>
                 </el-form-item>
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -23,11 +23,12 @@
         data: function(){
             return {
                 ruleForm: {
-                    username: '',
-                    password: ''
+                    userNo: '',
+                    password: '',
+                    appNo: '1008'
                 },
                 rules: {
-                    username: [
+                    userNo: [
                         { required: true, message: '请输入用户名', trigger: 'blur' }
                     ],
                     password: [
@@ -42,14 +43,26 @@
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
                         //localStorage.setItem('ms_username',self.ruleForm.username);
-                        this.$http.post('/rights',this.ruleForm)
+                        //let header = {'content-type': 'application/x-www-form-urlencoded'};
+                        console.log(this.ruleForm);
+                        var data = this.$queryString.stringify(this.ruleForm);
+                        console.log(data);
+                        this.$http.post('/rights',data)
                         .then(res => {
-                            console.log(res);
+                            let resData = this.$queryString.parse(res.data)
+                            console.log(resData);
+                            if(resData.Flag == 'true') {
+                                this.$toastr.success('登录成功')
+                                self.$router.push('/readme');
+                                //存储用户信息
+                                sessionStorage.UserName = resData.UserName;
+                            } else {
+                                this.$toastr.error(resData.Message)  
+                            }
                         })
                         .catch(err => {
                             console.log(err);
                         });
-                        self.$router.push('/readme');
                     } else {
                         console.log('error submit!!');
                         return false;

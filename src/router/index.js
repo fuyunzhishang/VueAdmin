@@ -52,6 +52,10 @@ export default new Router({
                 {
                     path: '/stockposition',
                     component: resolve => require(['../components/page/StockPosition.vue'], resolve)    // 库位信息组件
+                },
+                 {
+                    path: '/declpocancel',
+                    component: resolve => require(['../components/page/DeclpoCancel.vue'], resolve)    // 订单取消组件
                 }
             ]
         },

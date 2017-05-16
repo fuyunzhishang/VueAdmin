@@ -7,6 +7,7 @@
             <el-submenu index="1">
                 <template slot="title"><i class="el-icon-menu"></i>系统功能</template>
                 <el-menu-item index="stockposition">库位信息</el-menu-item>
+                <el-menu-item index="declpocancel">订单取消</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
                 <template slot="title"><i class="el-icon-menu"></i>表格</template>

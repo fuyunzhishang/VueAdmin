@@ -28,7 +28,7 @@
         },
         computed:{
             username(){
-                let username = localStorage.getItem('ms_username');
+                let username = sessionStorage.UserName;
                 return username ? username : this.name;
             }
         },

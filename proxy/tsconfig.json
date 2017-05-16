@@ -1,0 +1,31 @@
+
+{
+   "compilerOptions": {
+
+       "target": "es5",
+
+       "noImplicitAny": false,
+
+       "module": "commonjs",
+
+       "removeComments": true,
+
+       "sourceMap": false,
+
+       "outDir": "Golang/TypeScript/"
+
+    }
+
+    //"include":[
+
+    //     "ts"
+
+    // ],
+
+    //"exclude": [
+
+    //     "js"
+
+    // ]
+
+}

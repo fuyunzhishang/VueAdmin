@@ -4,7 +4,7 @@ var url = require('url');
 var path = require('path');
 var soap = require('soap');
 var querystring = require('querystring');
-var url = 'http://wms.hzd.highstore.cn/rights/RightsServiceForMultiApp.asmx?wsdl';
+var loginUrl = 'http://wms.hzd.highstore.cn/rights/RightsServiceForMultiApp.asmx?wsdl';
 
 // var args= {userNo:'050050', password:'hc123456', appNo:'1008'}
 
@@ -26,7 +26,7 @@ var server = http.createServer((req, res) => {
         res.writeHead(200, {
                 "Content-Type": "text/plain;charset=utf-8"
             });
-            soap.createClient(url, function(err, client) {
+            soap.createClient(loginUrl, function(err, client) {
                 client.LoginToApp(params, function(err, result) {
                     if(err) {
                         console.log(err);

@@ -24,8 +24,8 @@
     }
     },
     computed: mapGetters({
-      SearchList: 'DeclpoCancelSearchList',
-      CriteriaModel: 'DeclpoCancelCriteriaModel',
+      SearchList: 'SearchList',
+      CriteriaModel: 'CriteriaModel',
       Edit: 'Edit'
     })
   }
